@@ -8,8 +8,45 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Glassmorphism Background System */
+    --background: 240 100% 99%;
+    --foreground: 240 10% 3.9%;
+    
+    /* Glass Panel Colors */
+    --glass-background: 0 0% 100% / 0.1;
+    --glass-border: 0 0% 100% / 0.2;
+    --glass-shadow: 0 0% 0% / 0.1;
+    
+    /* Vibrant Gradient System */
+    --gradient-primary: linear-gradient(135deg, 
+      hsl(280 100% 85%) 0%, 
+      hsl(240 100% 88%) 25%, 
+      hsl(200 100% 85%) 50%, 
+      hsl(160 100% 85%) 75%, 
+      hsl(120 100% 85%) 100%);
+    
+    --gradient-secondary: linear-gradient(135deg,
+      hsl(320 100% 90%) 0%,
+      hsl(280 100% 88%) 50%,
+      hsl(240 100% 90%) 100%);
+      
+    --gradient-accent: linear-gradient(135deg,
+      hsl(200 100% 88%) 0%,
+      hsl(160 100% 85%) 50%,
+      hsl(120 100% 88%) 100%);
+    
+    /* Subject Color Coding */
+    --physics-primary: 240 100% 85%;
+    --physics-secondary: 260 100% 88%;
+    --chemistry-primary: 320 100% 85%;
+    --chemistry-secondary: 340 100% 88%;
+    --mathematics-primary: 160 100% 85%;
+    --mathematics-secondary: 180 100% 88%;
+    
+    /* Enhanced Shadows */
+    --shadow-glass: 0 8px 32px hsla(0 0% 0% / 0.1);
+    --shadow-vibrant: 0 8px 32px hsla(280 100% 85% / 0.3);
+    --shadow-soft: 0 4px 16px hsla(0 0% 0% / 0.05);
 
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
@@ -100,6 +137,60 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    background: var(--gradient-primary);
+    background-attachment: fixed;
+    min-height: 100vh;
+    @apply text-foreground;
+  }
+}
+
+/* Glassmorphism Components */
+@layer components {
+  .glass-panel {
+    @apply backdrop-blur-md bg-white/10 border border-white/20 rounded-2xl;
+    box-shadow: var(--shadow-glass);
+  }
+  
+  .glass-card {
+    @apply backdrop-blur-lg bg-white/15 border border-white/25 rounded-xl;
+    box-shadow: var(--shadow-soft);
+  }
+  
+  .subject-physics {
+    background: linear-gradient(135deg, 
+      hsla(240, 100%, 85%, 0.15), 
+      hsla(260, 100%, 88%, 0.1));
+    border-color: hsl(var(--physics-primary) / 0.3);
+  }
+  
+  .subject-chemistry {
+    background: linear-gradient(135deg, 
+      hsla(320, 100%, 85%, 0.15), 
+      hsla(340, 100%, 88%, 0.1));
+    border-color: hsl(var(--chemistry-primary) / 0.3);
+  }
+  
+  .subject-mathematics {
+    background: linear-gradient(135deg, 
+      hsla(160, 100%, 85%, 0.15), 
+      hsla(180, 100%, 88%, 0.1));
+    border-color: hsl(var(--mathematics-primary) / 0.3);
+  }
+  
+  .checkbox-custom {
+    @apply appearance-none w-5 h-5 border-2 border-white/40 rounded-md relative cursor-pointer;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    transition: all 0.2s ease;
+  }
+  
+  .checkbox-custom:checked {
+    @apply border-white/60;
+    background: rgba(255, 255, 255, 0.2);
+  }
+  
+  .checkbox-custom:checked::after {
+    content: '✓';
+    @apply absolute inset-0 flex items-center justify-center text-white text-sm font-bold;
   }
 }

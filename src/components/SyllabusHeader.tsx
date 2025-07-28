@@ -9,13 +9,10 @@ const SyllabusHeader = () => {
         <div className="p-3 rounded-full bg-gradient-to-r from-primary to-secondary">
           <GraduationCap className="h-8 w-8 text-white" />
         </div>
-        <CardTitle className="text-4xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+        <CardTitle className="text-4xl font-bold text-foreground">
           JEE Advanced 2025 Syllabus Checklist
         </CardTitle>
       </div>
-      <p className="text-lg text-muted-foreground">
-        Track your preparation progress across all subjects (Class 11 & 12)
-      </p>
     </CardHeader>
   );
 };

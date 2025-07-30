@@ -2,7 +2,7 @@ import { SyllabusData } from '@/types/syllabus';
 
 export const syllabusData: SyllabusData = {
   "Engineering Mathematics": {
-    "Linear algebra": {
+    "Algebra but Linear": {
       "Core Concepts": [
         "Vector space, basis, linear dependence and independence",
         "Matrix algebra",

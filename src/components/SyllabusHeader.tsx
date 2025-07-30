@@ -10,7 +10,7 @@ const SyllabusHeader = () => {
           <GraduationCap className="h-8 w-8 text-white" />
         </div>
         <CardTitle className="text-4xl font-bold text-foreground">
-          JEE Advanced 2025 Syllabus Checklist
+          GATE Exam Syllabus Checklist
         </CardTitle>
       </div>
     </CardHeader>

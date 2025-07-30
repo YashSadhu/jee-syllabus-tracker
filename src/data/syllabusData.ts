@@ -1,274 +1,518 @@
 import { SyllabusData } from '@/types/syllabus';
 
 export const syllabusData: SyllabusData = {
-  "Engineering Mathematics": {
-    "Algebra but Linear": {
-      "Core Concepts": [
-        "Vector space, basis, linear dependence and independence",
+  "mathematics": {
+    "Core Topics": {
+      "Linear Algebra": [
+        "Vector space",
+        "Basis",
+        "Linear dependence and independence",
         "Matrix algebra",
-        "Eigen values and eigen vectors",
+        "Eigenvalues and eigenvectors",
         "Rank",
-        "Solution of linear equations - existence and uniqueness"
-      ]
-    },
-    "Calculus": {
-      "Core Concepts": [
+        "Solution of linear equations",
+        "Existence and uniqueness"
+      ],
+      "Calculus": [
         "Mean value theorems",
         "Theorems of integral calculus",
         "Evaluation of definite and improper integrals",
         "Partial derivatives",
         "Maxima and minima",
         "Multiple integrals",
-        "Line, surface and volume integrals",
-        "Taylor series"
-      ]
-    },
-    "Differential Equations": {
-      "Core Concepts": [
+        "Line integral",
+        "Surface integral",
+        "Volume integral",
+        "Stokes theorem",
+        "Gauss theorem",
+        "Green's theorem"
+      ],
+      "Differential Equations": [
         "First order equations (linear and nonlinear)",
-        "Higher order linear differential equations",
-        "Cauchy's and Euler's equations",
-        "Methods of solution using variation of parameters",
-        "Complementary function and particular integral",
-        "Partial differential equations",
-        "Variable separable method",
-        "Initial and boundary value problems"
-      ]
-    },
-    "Vector Analysis": {
-      "Core Concepts": [
-        "Vectors in plane and space",
-        "Vector operations",
-        "Gradient, divergence and curl",
-        "Gauss's, Green's and Stokes’ theorems"
-      ]
-    },
-    "Complex Analysis": {
-      "Core Concepts": [
+        "Higher order linear differential equations with constant coefficients",
+        "Cauchy's equation",
+        "Euler's equation",
+        "Initial and boundary value problems",
+        "Laplace transforms",
+        "Solutions of heat, wave and Laplace's equations"
+      ],
+      "Complex Analysis": [
         "Analytic functions",
-        "Cauchy’s integral theorem and formula",
-        "Sequences and series, convergence tests",
-        "Taylor and Laurent series",
-        "Residue theorem"
-      ]
-    },
-    "Probability and Statistics": {
-      "Core Concepts": [
-        "Mean, median, mode, standard deviation",
-        "Combinatorial probability",
-        "Probability distributions (Binomial, Poisson, Exponential, Normal)",
-        "Joint and conditional probability"
+        "Cauchy's integral theorem",
+        "Cauchy's integral formula",
+        "Taylor series",
+        "Laurent series",
+        "Residue theorem",
+        "Solution integrals"
+      ],
+      "Probability and Statistics": [
+        "Definitions of probability and sampling theorems",
+        "Conditional probability",
+        "Mean, median, mode and standard deviation",
+        "Random variables",
+        "Discrete and continuous distributions",
+        "Poisson distribution",
+        "Normal distribution",
+        "Binomial distribution",
+        "Correlation analysis",
+        "Regression analysis"
+      ],
+      "Numerical Methods": [
+        "Solutions of nonlinear algebraic equations",
+        "Single and multi-step methods for differential equations",
+        "Convergence criteria"
+      ],
+      "Transform Theory": [
+        "Fourier transform",
+        "Laplace transform",
+        "Z-transform"
       ]
     }
   },
   "Networks, Signals and Systems": {
-    "Circuit Analysis": {
-      "Fundamentals": [
-        "Node and mesh analysis",
-        "Superposition, Thevenin's theorem, Norton’s theorem, reciprocity",
-        "Sinusoidal steady state analysis: phasors, complex power, maximum power transfer",
-        "Time and frequency domain analysis of linear circuits: RL, RC and RLC circuits",
+    "Network Theory": {
+      "Circuit Analysis": [
+        "Voltage and current sources",
+        "Independent sources",
+        "Dependent sources",
+        "Resistive networks",
+        "Solution methods: nodal analysis",
+        "Solution methods: mesh analysis",
+        "Superposition theorem",
+        "Thevenin's theorem",
+        "Norton's theorem",
+        "Maximum power transfer theorem"
+      ],
+      "AC Analysis": [
+        "Steady state sinusoidal analysis using phasors",
+        "Single phase AC circuits",
+        "Power and power factor",
+        "Three phase circuits",
+        "Resonance in RLC circuits",
+        "Locus diagrams"
+      ],
+      "Transient Analysis": [
+        "Time domain analysis of simple linear circuits",
         "Solution of network equations using Laplace transform",
-        "Linear 2-port network parameters",
-        "Wye-delta transformation"
+        "Frequency domain analysis",
+        "2-port network parameters",
+        "Driving point impedance and admittance",
+        "Transfer functions"
+      ],
+      "Network Synthesis": [
+        "Foster and Cauer forms of LC",
+        "Foster and Cauer forms of RC and RL networks",
+        "Transmission criteria: delay and rise time",
+        "Group delay",
+        "Phase delay"
       ]
     },
     "Signals and Systems": {
-      "Continuous-time": [
-        "Fourier series and Fourier transform",
-        "Sampling theorem and applications"
+      "Signal Classification": [
+        "Continuous and discrete signals",
+        "Impulse response",
+        "Step response",
+        "Causality",
+        "Stability",
+        "Convolution",
+        "Correlation of signals"
       ],
-      "Discrete-time": [
-        "DTFT, DFT, z-transform",
-        "Discrete-time processing of continuous-time signals"
+      "Fourier Analysis": [
+        "Fourier series representation of continuous periodic signals",
+        "Sampling theorem",
+        "Applications of Fourier Transform",
+        "Laplace transform",
+        "Z-transform"
       ],
-      "LTI Systems": [
-        "Definition and properties, causality, stability",
-        "Impulse response, convolution",
-        "Poles and zeroes, frequency response",
-        "Group delay, phase delay"
+      "System Analysis": [
+        "Linear Time-Invariant (LTI) systems",
+        "Transmission of signals through LTI systems",
+        "Discrete time signals and systems",
+        "DFT and FFT",
+        "2-D signals and systems"
       ]
     }
   },
   "Electronic Devices": {
     "Semiconductor Physics": {
-      "Fundamentals": [
-        "Energy bands in intrinsic and extrinsic semiconductors",
-        "Equilibrium carrier concentration",
-        "Direct and indirect band-gap semiconductors"
-      ],
-      "Carrier Transport": [
-        "Diffusion current, drift current, mobility and resistivity",
+      "Basic Concepts": [
+        "Energy bands in intrinsic and extrinsic silicon",
+        "Carrier transport: diffusion current",
+        "Carrier transport: drift current",
+        "Mobility and resistivity",
         "Generation and recombination of carriers",
-        "Poisson and continuity equations"
+        "Poisson equation",
+        "Continuity equation"
+      ],
+      "P-N Junction": [
+        "P-N junction, Zener diode",
+        "Tunnel diode",
+        "PIN diode",
+        "Schottky diode",
+        "Varactor diode",
+        "Solar cell",
+        "Photodiode"
       ]
     },
-    "Semiconductor Devices": {
-      "Diodes & Transistors": [
-        "P-N junction",
-        "Zener diode",
-        "BJT",
-        "MOS capacitor",
-        "MOSFET"
+    "Bipolar Junction Transistors": {
+      "BJT Fundamentals": [
+        "Current-voltage characteristics",
+        "Charge control model",
+        "Small signal equivalent circuits",
+        "Common emitter amplifier",
+        "Common base amplifier",
+        "Common collector amplifier",
+        "Frequency response",
+        "Current mirrors",
+        "Differential amplifiers"
+      ]
+    },
+    "Field Effect Transistors": {
+      "MOSFET": [
+        "C-V characteristics",
+        "MOSFET capacitances",
+        "Long channel I-V characteristics",
+        "Constant field scaling",
+        "CMOS inverter"
       ],
-      "Optoelectronic Devices": [
-        "LED",
-        "Photo diode",
-        "Solar cell"
+      "JFET": [
+        "JFET characteristics",
+        "JFET small signal equivalent circuits"
+      ]
+    },
+    "Operational Amplifiers": {
+      "Op-Amp Circuits": [
+        "Ideal op-amp characteristics",
+        "Inverting amplifier",
+        "Non-inverting amplifier",
+        "Summing amplifier",
+        "Integrator",
+        "Differentiator",
+        "Instrumentation amplifier",
+        "Precision rectifier",
+        "Log amplifier",
+        "Anti-log amplifier",
+        "Oscillators: Barkhausen criteria",
+        "Sinusoidal oscillators: LC, RC phase shift, Wien bridge",
+        "Crystal oscillators",
+        "Multivibrators"
       ]
     }
   },
   "Analog Circuits": {
-    "Diode Circuits": {
-      "Applications": [
-        "Clipping circuits",
-        "Clamping circuits",
-        "Rectifiers"
-      ]
-    },
-    "BJT and MOSFET Amplifiers": {
-      "Analysis": [
-        "Biasing",
-        "AC coupling",
-        "Small signal analysis",
-        "Frequency response"
-      ]
-    },
-    "Advanced Circuits": {
-      "Op-Amps & Amplifiers": [
-        "Current mirrors and differential amplifiers",
-        "Op-amp Circuits: Amplifiers, summers, differentiators, integrators",
+    "Amplifiers": {
+      "Small Signal Analysis": [
+        "Transistor bias circuits",
+        "Analysis of amplifier circuits",
+        "Single stage amplifiers",
+        "Multi-stage amplifiers",
+        "Differential amplifiers",
+        "Operational amplifier circuits",
         "Active filters",
-        "Schmitt triggers and oscillators"
+        "Sinusoidal oscillators"
+      ],
+      "Frequency Response": [
+        "Frequency response of amplifiers",
+        "Miller effect",
+        "Compensation techniques",
+        "Stability and compensation"
+      ]
+    },
+    "Feedback Systems": {
+      "Feedback Amplifiers": [
+        "Feedback topology",
+        "Voltage series feedback",
+        "Voltage shunt feedback",
+        "Current series feedback",
+        "Current shunt feedback",
+        "Properties of negative feedback amplifiers",
+        "Stability of feedback amplifiers"
+      ]
+    },
+    "Power Amplifiers": {
+      "Power Circuits": [
+        "Class A power amplifiers",
+        "Class B power amplifiers",
+        "Class AB power amplifiers",
+        "Class C power amplifiers",
+        "Efficiency calculations",
+        "Distortion analysis"
+      ]
+    },
+    "Waveform Generators": {
+      "Oscillators and Multivibrators": [
+        "LC oscillators",
+        "RC oscillators",
+        "Crystal oscillators",
+        "Astable multivibrators",
+        "Monostable multivibrators",
+        "Bistable multivibrators",
+        "Schmitt triggers",
+        "555 timer applications"
       ]
     }
   },
   "Digital Circuits": {
-    "Fundamentals": {
-      "Number Systems & Logic": [
-        "Number Representations: Binary, integer and floating-point- numbers",
+    "Number Systems": {
+      "Basic Concepts": [
+        "Number representation",
+        "Binary arithmetic",
         "Boolean algebra",
-        "Minimization of functions using Boolean identities and Karnaugh map",
-        "Logic gates and their static CMOS implementations"
+        "Logic gates",
+        "Minimization of Boolean functions",
+        "Karnaugh maps",
+        "Quine-McCluskey method"
       ]
     },
     "Combinational Circuits": {
-      "Building Blocks": [
-        "Arithmetic circuits",
+      "Design and Analysis": [
+        "Combinational circuit design",
+        "Arithmetic circuits: adders, subtractors",
         "Code converters",
-        "Multiplexers",
-        "Decoders"
+        "Multiplexers and demultiplexers",
+        "Encoders and decoders",
+        "Priority encoders",
+        "Comparators"
       ]
     },
     "Sequential Circuits": {
-      "Core Concepts": [
+      "Memory Elements": [
         "Latches and flip-flops",
-        "Counters, shift-registers",
+        "Counters and shift registers",
         "Finite state machines",
-        "Timing: propagation delay, setup and hold time, critical path delay"
+        "Sequence generators and detectors",
+        "Design with MSI components"
       ]
     },
-    "Data Converters and Memories": {
-      "Components": [
-        "Data Converters: Sample and hold circuits, ADCs and DACs",
-        "Semiconductor Memories: ROM, SRAM, DRAM"
+    "Memory and Programmable Logic": {
+      "Memory Systems": [
+        "Semiconductor memories: ROM, SRAM, DRAM",
+        "Memory organization",
+        "Memory interfacing",
+        "Programmable logic devices: PLA, PAL, CPLD, FPGA",
+        "Number representation in digital systems",
+        "Arithmetic operations",
+        "Error detection and correction codes",
+        "Hamming codes"
       ]
     },
-    "Computer Organization": {
-      "Architecture": [
-        "Machine instructions and addressing modes",
-        "ALU, data-path and control unit",
-        "Instruction pipelining"
+    "Microprocessors": {
+      "8085 Microprocessor": [
+        "Architecture of 8085 microprocessor",
+        "Programming model",
+        "Instruction set",
+        "Addressing modes",
+        "Assembly language programming",
+        "Interrupts",
+        "Memory and I/O interfacing"
       ]
     }
   },
   "Control Systems": {
-    "System Analysis": {
-      "Modeling": [
+    "Mathematical Modeling": {
+      "System Representation": [
         "Basic control system components",
         "Feedback principle",
         "Transfer function",
         "Block diagram representation",
-        "Signal flow graph"
-      ],
-      "Performance": [
-        "Transient and steady-state analysis of LTI systems",
-        "Frequency response",
-        "Routh-Hurwitz and Nyquist stability criteria",
-        "Bode and root-locus plots"
-      ],
-      "Design": [
-        "Lag, lead and lag-lead compensation",
-        "State variable model and solution of state equation of LTI systems"
+        "Signal flow graph",
+        "Mason's gain formula",
+        "Modeling of mechanical, electrical and electromechanical systems"
+      ]
+    },
+    "Time Domain Analysis": {
+      "System Response": [
+        "Standard test signals",
+        "Time response of first order systems",
+        "Time response of second order systems",
+        "Steady-state error analysis",
+        "Stability analysis",
+        "Routh-Hurwitz stability criterion",
+        "Root locus method"
+      ]
+    },
+    "Frequency Domain Analysis": {
+      "Frequency Response": [
+        "Frequency response analysis",
+        "Bode plots",
+        "Polar plots",
+        "Nyquist plots",
+        "Stability analysis using Nyquist criterion",
+        "Relative stability: gain margin and phase margin"
+      ]
+    },
+    "Control System Design": {
+      "Compensation Techniques": [
+        "Design of control systems using root locus",
+        "Design of control systems using frequency response",
+        "Lead compensation",
+        "Lag compensation",
+        "Lead-lag compensation",
+        "PID controllers"
+      ]
+    },
+    "State Space Analysis": {
+      "Modern Control": [
+        "State space representation",
+        "Solution of state equations",
+        "Controllability and observability",
+        "State feedback controller design",
+        "Observer design"
       ]
     }
   },
   "Communications": {
-    "Random Processes": {
-      "Analysis": [
-        "Autocorrelation and power spectral density",
-        "Properties of white noise",
-        "Filtering of random signals through LTI systems"
-      ]
-    },
     "Analog Communications": {
-      "Modulation & Demodulation": [
-        "Amplitude modulation and demodulation (AM)",
-        "Angle modulation and demodulation (FM)",
-        "Spectra of AM and FM",
-        "Super heterodyne receivers"
-      ]
-    },
-    "Information Theory": {
-      "Core Concepts": [
-        "Entropy",
-        "Mutual information",
-        "Channel capacity theorem"
+      "Amplitude Modulation": [
+        "Amplitude modulation and demodulation",
+        "AM signal analysis",
+        "DSB-SC modulation",
+        "SSB modulation",
+        "VSB modulation",
+        "Superheterodyne receivers",
+        "AGC and AFC"
+      ],
+      "Angle Modulation": [
+        "Frequency modulation",
+        "Phase modulation",
+        "FM signal analysis",
+        "Generation of FM signals",
+        "Detection of FM signals",
+        "Pre-emphasis and de-emphasis",
+        "FM receivers"
       ]
     },
     "Digital Communications": {
-      "Techniques": [
-        "PCM, DPCM",
-        "Digital modulation schemes (ASK, PSK, FSK, QAM)",
-        "Bandwidth, inter-symbol interference (ISI)"
+      "Digital Modulation": [
+        "PCM, DPCM, DM, ADM",
+        "Sampling theorem",
+        "Quantization noise",
+        "Baseband digital transmission",
+        "Line codes",
+        "Inter-symbol interference",
+        "Eye diagrams",
+        "Equalizers"
       ],
-      "Receivers & Error Correction": [
-        "MAP, ML detection",
-        "Matched filter receiver, SNR and BER",
-        "Fundamentals of error correction, Hamming codes, CRC"
+      "Digital Modulation Schemes": [
+        "ASK, FSK, PSK, QPSK",
+        "MSK, GMSK",
+        "QAM modulation schemes",
+        "Coherent and non-coherent detection",
+        "Probability of error calculations",
+        "Matched filter receivers",
+        "Maximum likelihood detection"
+      ]
+    },
+    "Information Theory": {
+      "Source Coding": [
+        "Entropy and mutual information",
+        "Source coding theorem",
+        "Huffman coding",
+        "Shannon-Fano coding",
+        "Lempel-Ziv coding"
+      ],
+      "Channel Coding": [
+        "Channel capacity",
+        "Shannon's channel coding theorem",
+        "Linear block codes",
+        "Hamming codes",
+        "Cyclic codes",
+        "Convolutional codes",
+        "Viterbi decoding",
+        "Turbo codes",
+        "LDPC codes"
+      ]
+    },
+    "Random Processes": {
+      "Stochastic Analysis": [
+        "Random variables and random processes",
+        "Correlation functions",
+        "Power spectral density",
+        "White noise",
+        "Noise in analog communication systems",
+        "Noise in digital communication systems",
+        "Signal-to-noise ratio calculations"
       ]
     }
   },
   "Electromagnetics": {
-    "Maxwell's Equations": {
-      "Fundamentals": [
-        "Differential and integral forms and their interpretation",
+    "Electrostatics": {
+      "Static Fields": [
+        "Coulomb's law",
+        "Electric field intensity",
+        "Electric flux density",
+        "Gauss's law",
+        "Electric potential",
+        "Properties of conductors and dielectrics",
+        "Capacitance",
+        "Boundary value problems",
+        "Laplace's equation",
+        "Poisson's equation"
+      ]
+    },
+    "Magnetostatics": {
+      "Magnetic Fields": [
+        "Biot-Savart law",
+        "Ampere's law",
+        "Magnetic flux density",
+        "Magnetic field intensity",
+        "Magnetic materials",
+        "Inductance",
+        "Magnetic energy"
+      ]
+    },
+    "Time-Varying Fields": {
+      "Maxwell's Equations": [
+        "Faraday's law",
+        "Displacement current",
+        "Maxwell's equations in integral form",
+        "Maxwell's equations in differential form",
         "Boundary conditions",
         "Wave equation",
         "Poynting vector"
       ]
     },
-    "Plane Waves and Properties": {
+    "Electromagnetic Waves": {
       "Wave Propagation": [
-        "Reflection and refraction",
-        "Polarization",
-        "Phase and group velocity",
-        "Propagation through various media",
-        "Skin depth"
+        "Plane waves in free space",
+        "Plane waves in dielectric media",
+        "Plane waves in conducting media",
+        "Reflection and transmission at boundaries",
+        "Standing waves",
+        "VSWR",
+        "Impedance matching"
       ]
     },
-    "Transmission Lines & Waveguides": {
-      "Core Concepts": [
-        "Transmission Lines: Equations, characteristic impedance, impedance matching",
-        "Impedance transformation, S-parameters, Smith chart",
-        "Rectangular and circular waveguides",
-        "Light propagation in optical fibers"
+    "Transmission Lines": {
+      "Guided Waves": [
+        "Transmission line equations",
+        "Characteristic impedance",
+        "Propagation constant",
+        "Input impedance",
+        "Smith chart applications",
+        "Impedance matching using stubs",
+        "Quarter wave transformer",
+        "Pulse propagation on transmission lines"
+      ]
+    },
+    "Waveguides": {
+      "Microwave Engineering": [
+        "Rectangular waveguides",
+        "TE and TM modes",
+        "Cutoff frequencies",
+        "Dispersion characteristics",
+        "Microwave components: couplers, isolators, circulators",
+        "Microwave measurements",
+        "Cavity resonators"
       ]
     },
     "Antennas": {
-      "Fundamentals": [
-        "Dipole and monopole antennas",
-        "Linear antenna arrays"
+      "Radiation and Propagation": [
+        "Antenna fundamentals",
+        "Radiation pattern",
+        "Directivity and gain",
+        "Antenna impedance",
+        "Polarization"
       ]
     }
   }

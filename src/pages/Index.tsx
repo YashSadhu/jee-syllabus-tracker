@@ -30,6 +30,20 @@ const Index = () => {
   const subjects = Object.keys(filteredData);
   const firstSubject = subjects[0] || 'mathematics';
 
+  // Short name mapping for subjects
+  const getShortName = (subject: string) => {
+    const subjectLower = subject.toLowerCase();
+    if (subjectLower.includes('math')) return 'Math';
+    if (subjectLower.includes('network') || subjectLower.includes('signal')) return 'NSS';
+    if (subjectLower.includes('electronic') && subjectLower.includes('device')) return 'Edc';
+    if (subjectLower.includes('analog')) return 'Ana';
+    if (subjectLower.includes('digital')) return 'Dig';
+    if (subjectLower.includes('control')) return 'Ctrl';
+    if (subjectLower.includes('communication')) return 'Com';
+    if (subjectLower.includes('electromagnet')) return 'EM';
+    return subject.substring(0, 4);
+  };
+
   // Icon mapping for subjects
   const getSubjectIcon = (subject: string) => {
     const subjectLower = subject.toLowerCase();
@@ -70,9 +84,10 @@ const Index = () => {
 
             {!showSelected && (
               <Tabs defaultValue={firstSubject} className="w-full">
-                <TabsList className={`grid w-full grid-cols-${Math.min(subjects.length, 4)} bg-white/80 backdrop-blur-sm gap-1`}>
+                <TabsList className="grid w-full bg-white/80 backdrop-blur-sm gap-1" style={{gridTemplateColumns: `repeat(${subjects.length}, minmax(0, 1fr))`}}>
                   {subjects.map((subject, index) => {
                     const Icon = getSubjectIcon(subject);
+                    const shortName = getShortName(subject);
                     const colors = [
                       'data-[state=active]:from-blue-400 data-[state=active]:to-blue-600',
                       'data-[state=active]:from-green-400 data-[state=active]:to-green-600', 
@@ -87,10 +102,10 @@ const Index = () => {
                       <TabsTrigger 
                         key={subject} 
                         value={subject} 
-                        className={`data-[state=active]:bg-gradient-to-r ${colors[index % colors.length]} data-[state=active]:text-white text-sm`}
+                        className={`data-[state=active]:bg-gradient-to-r ${colors[index % colors.length]} data-[state=active]:text-white text-xs px-2 py-2 flex flex-col items-center gap-1 min-w-0`}
                       >
-                        <Icon className="h-4 w-4 mr-1" />
-                        <span className="truncate">{subject.replace(/([A-Z])/g, ' $1').trim()}</span>
+                        <Icon className="h-4 w-4" />
+                        <span className="text-xs font-medium">{shortName}</span>
                       </TabsTrigger>
                     );
                   })}

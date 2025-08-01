@@ -146,30 +146,47 @@ export const useSyllabus = () => {
   };
 
   const getProgressStats = () => {
-    let totalTopics = 0;
-    let checkedTopicsCount = 0;
+    try {
+      let totalTopics = 0;
+      let checkedTopicsCount = 0;
 
-    Object.entries(syllabusData).forEach(([subject, standards]) => {
-      Object.entries(standards).forEach(([standard, chapters]) => {
-        Object.entries(chapters).forEach(([chapter, topics]) => {
-          totalTopics += topics.length;
-          topics.forEach(topic => {
-            const topicId = `${subject}-${standard}-${chapter}-${topic}`;
-            if (checkedItems.has(topicId)) {
-              checkedTopicsCount++;
-            }
-          });
+      if (syllabusData && typeof syllabusData === 'object') {
+        Object.entries(syllabusData).forEach(([subject, standards]) => {
+          if (standards && typeof standards === 'object') {
+            Object.entries(standards).forEach(([standard, chapters]) => {
+              if (chapters && typeof chapters === 'object') {
+                Object.entries(chapters).forEach(([chapter, topics]) => {
+                  if (Array.isArray(topics)) {
+                    totalTopics += topics.length;
+                    topics.forEach(topic => {
+                      const topicId = `${subject}-${standard}-${chapter}-${topic}`;
+                      if (checkedItems.has(topicId)) {
+                        checkedTopicsCount++;
+                      }
+                    });
+                  }
+                });
+              }
+            });
+          }
         });
-      });
-    });
+      }
 
-    const percentage = totalTopics > 0 ? Math.round((checkedTopicsCount / totalTopics) * 100) : 0;
-    
-    return {
-      checked: checkedTopicsCount,
-      total: totalTopics,
-      percentage
-    };
+      const percentage = totalTopics > 0 ? Math.round((checkedTopicsCount / totalTopics) * 100) : 0;
+      
+      return {
+        checked: checkedTopicsCount,
+        total: totalTopics,
+        percentage
+      };
+    } catch (error) {
+      console.error('Error calculating progress stats:', error);
+      return {
+        checked: 0,
+        total: 0,
+        percentage: 0
+      };
+    }
   };
 
   const isChapterFullyChecked = (chapterId: string, topics: string[]) => {

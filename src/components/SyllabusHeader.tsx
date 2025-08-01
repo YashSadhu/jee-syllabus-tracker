@@ -4,7 +4,7 @@ import { Progress } from '@/components/ui/progress';
 import { GraduationCap, CheckCircle, Target } from 'lucide-react';
 
 interface SyllabusHeaderProps {
-  progressStats: {
+  progressStats?: {
     checked: number;
     total: number;
     percentage: number;
@@ -12,6 +12,8 @@ interface SyllabusHeaderProps {
 }
 
 const SyllabusHeader = ({ progressStats }: SyllabusHeaderProps) => {
+  // Provide default values if progressStats is undefined
+  const stats = progressStats || { checked: 0, total: 0, percentage: 0 };
   return (
     <CardHeader className="text-center space-y-6">
       <div className="flex items-center justify-center gap-3">
@@ -27,20 +29,20 @@ const SyllabusHeader = ({ progressStats }: SyllabusHeaderProps) => {
         <div className="flex items-center justify-center gap-6 text-sm text-muted-foreground">
           <div className="flex items-center gap-2">
             <CheckCircle className="h-4 w-4" />
-            <span>{progressStats.checked} completed</span>
+            <span>{stats.checked} completed</span>
           </div>
           <div className="flex items-center gap-2">
             <Target className="h-4 w-4" />
-            <span>{progressStats.total} total topics</span>
+            <span>{stats.total} total topics</span>
           </div>
         </div>
         
         <div className="max-w-md mx-auto space-y-2">
           <div className="flex justify-between text-sm">
             <span className="text-muted-foreground">Progress</span>
-            <span className="font-medium">{progressStats.percentage}%</span>
+            <span className="font-medium">{stats.percentage}%</span>
           </div>
-          <Progress value={progressStats.percentage} className="h-3" />
+          <Progress value={stats.percentage} className="h-3" />
         </div>
       </div>
     </CardHeader>

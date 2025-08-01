@@ -1,13 +1,57 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { CheckedItems } from '@/types/syllabus';
 import { syllabusData } from '@/data/syllabusData';
 
+// Local storage keys
+const STORAGE_KEYS = {
+  CHECKED_ITEMS: 'syllabus_checked_items',
+  CHECKED_CHAPTERS: 'syllabus_checked_chapters',
+  EXPANDED_CHAPTERS: 'syllabus_expanded_chapters'
+};
+
+// Helper functions for localStorage
+const loadFromStorage = (key: string): Set<string> => {
+  try {
+    const stored = localStorage.getItem(key);
+    return stored ? new Set(JSON.parse(stored)) : new Set();
+  } catch {
+    return new Set();
+  }
+};
+
+const saveToStorage = (key: string, data: Set<string>) => {
+  try {
+    localStorage.setItem(key, JSON.stringify(Array.from(data)));
+  } catch {
+    // Silently fail if localStorage is not available
+  }
+};
+
 export const useSyllabus = () => {
-  const [checkedItems, setCheckedItems] = useState<Set<string>>(new Set());
-  const [checkedChapters, setCheckedChapters] = useState<Set<string>>(new Set());
+  const [checkedItems, setCheckedItems] = useState<Set<string>>(() => 
+    loadFromStorage(STORAGE_KEYS.CHECKED_ITEMS)
+  );
+  const [checkedChapters, setCheckedChapters] = useState<Set<string>>(() => 
+    loadFromStorage(STORAGE_KEYS.CHECKED_CHAPTERS)
+  );
   const [searchTerm, setSearchTerm] = useState('');
-  const [expandedChapters, setExpandedChapters] = useState<Set<string>>(new Set());
+  const [expandedChapters, setExpandedChapters] = useState<Set<string>>(() => 
+    loadFromStorage(STORAGE_KEYS.EXPANDED_CHAPTERS)
+  );
   const [showSelected, setShowSelected] = useState(false);
+
+  // Save to localStorage whenever state changes
+  useEffect(() => {
+    saveToStorage(STORAGE_KEYS.CHECKED_ITEMS, checkedItems);
+  }, [checkedItems]);
+
+  useEffect(() => {
+    saveToStorage(STORAGE_KEYS.CHECKED_CHAPTERS, checkedChapters);
+  }, [checkedChapters]);
+
+  useEffect(() => {
+    saveToStorage(STORAGE_KEYS.EXPANDED_CHAPTERS, expandedChapters);
+  }, [expandedChapters]);
 
   const toggleItem = (itemId: string) => {
     const newCheckedItems = new Set(checkedItems);
@@ -101,6 +145,33 @@ export const useSyllabus = () => {
     return Array.from(checkedItems);
   };
 
+  const getProgressStats = () => {
+    let totalTopics = 0;
+    let checkedTopicsCount = 0;
+
+    Object.entries(syllabusData).forEach(([subject, standards]) => {
+      Object.entries(standards).forEach(([standard, chapters]) => {
+        Object.entries(chapters).forEach(([chapter, topics]) => {
+          totalTopics += topics.length;
+          topics.forEach(topic => {
+            const topicId = `${subject}-${standard}-${chapter}-${topic}`;
+            if (checkedItems.has(topicId)) {
+              checkedTopicsCount++;
+            }
+          });
+        });
+      });
+    });
+
+    const percentage = totalTopics > 0 ? Math.round((checkedTopicsCount / totalTopics) * 100) : 0;
+    
+    return {
+      checked: checkedTopicsCount,
+      total: totalTopics,
+      percentage
+    };
+  };
+
   const isChapterFullyChecked = (chapterId: string, topics: string[]) => {
     return topics.every(topic => checkedItems.has(`${chapterId}-${topic}`));
   };
@@ -150,6 +221,7 @@ export const useSyllabus = () => {
     getSelectedTopics,
     isChapterFullyChecked,
     isChapterPartiallyChecked,
-    filteredData
+    filteredData,
+    getProgressStats
   };
 };

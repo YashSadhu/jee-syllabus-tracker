@@ -23,14 +23,15 @@ const Index = () => {
     getSelectedTopics,
     isChapterFullyChecked,
     isChapterPartiallyChecked,
-    filteredData
+    filteredData,
+    getProgressStats
   } = useSyllabus();
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-primary/5 via-secondary/5 to-accent/5">
       <div className="container mx-auto p-6 max-w-6xl">
         <Card className="backdrop-blur-md bg-white/90 border-white/20 shadow-xl">
-          <SyllabusHeader />
+          <SyllabusHeader progressStats={getProgressStats()} />
 
           <CardContent className="space-y-6">
             <SyllabusControls

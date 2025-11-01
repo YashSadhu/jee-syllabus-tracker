@@ -27,7 +27,7 @@ const SyllabusHeader = ({ progressStats }: SyllabusHeaderProps) => {
         >
           perplexa.bolt.host <ExternalLink className="h-3 w-3" />
           <span className="hidden sm:inline text-xs italic text-muted-foreground">
-            — where your results tell their story
+            Game Changing Quizzes
           </span>
         </a>
         <a

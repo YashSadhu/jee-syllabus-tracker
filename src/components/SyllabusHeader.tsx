@@ -17,28 +17,34 @@ const SyllabusHeader = ({ progressStats }: SyllabusHeaderProps) => {
   return (
     <CardHeader className="text-center space-y-6 relative">
       {/* Header Links */}
-      <div className="absolute top-4 right-6 flex items-center gap-4 text-sm text-muted-foreground">
+      <div className="absolute top-4 right-6 flex items-center gap-5 text-sm text-muted-foreground">
         <a
-          href="mailto:networks.yash@gmail.com"
-          className="hover:text-primary transition-colors"
+          href="https://perplexa.bolt.host/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-1 hover:text-primary transition-colors"
+          title="Dive deep into AI-powered performance insights"
         >
-          networks.yash@gmail.com
+          perplexa.bolt.host <ExternalLink className="h-3 w-3" />
+          <span className="hidden sm:inline text-xs italic text-muted-foreground">
+            — where your results tell their story
+          </span>
         </a>
         <a
           href="https://yessgate.bolt.host/"
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center gap-1 hover:text-primary transition-colors"
+          title="Your main quiz platform"
         >
           yessgate.bolt.host <ExternalLink className="h-3 w-3" />
         </a>
         <a
-          href="https://perplexa.bolt.host/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-1 hover:text-primary transition-colors"
+          href="mailto:networks.yash@gmail.com"
+          className="hover:text-primary transition-colors"
+          title="Contact support"
         >
-          perplexa.bolt.host <ExternalLink className="h-3 w-3" />
+          networks.yash@gmail.com
         </a>
       </div>
 
